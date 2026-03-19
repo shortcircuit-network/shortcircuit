@@ -1,0 +1,14 @@
+[Unit]
+Description=Cloudflare DDNS Update
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/ddns-ipv6
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target
+

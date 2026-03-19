@@ -1,0 +1,30 @@
+do_token            = "dop_v1_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+do_region           = "sfo3"   # sfo3, nyc3, ams3, sgp1, fra1 — see: https://slugs.do-api.dev
+droplet_name        = "shortcircuit-lighthouse"
+ssh_public_key_path = "~/.ssh/id_ed25519.pub"
+pvt_key             = "~/.ssh/id_ed25519"
+
+# Headscale
+headscale_domain     = "mesh.shortcircuit.network"
+headscale_server_url = "https://mesh.shortcircuit.network"
+headscale_version    = "0.25.1"
+
+# ocserv
+ocserv_domain = "vpn.shortcircuit.network"
+
+# TLS
+letsencrypt_email = "you@example.com"
+
+# Cloudflare (DDNS A records + certbot DNS challenge)
+# Token needs Zone:DNS:Edit permission for the shortcircuit.network zone.
+# Create at: https://dash.cloudflare.com/profile/api-tokens (use "Edit zone DNS" template)
+cf_email = "you@example.com"
+cf_token = "your-cloudflare-scoped-api-token"
+# Both mesh + vpn FQDNs need A records kept current
+ddns_records_json = "[{\"name\":\"mesh.shortcircuit.network\",\"zone\":\"ZONE_ID\",\"record\":\"RECORD_ID\"},{\"name\":\"vpn.shortcircuit.network\",\"zone\":\"ZONE_ID\",\"record\":\"RECORD_ID\"}]"
+
+# Litestream / Cloudflare R2
+r2_access_key_id     = "your-r2-access-key-id"
+r2_secret_access_key = "your-r2-secret-access-key"
+r2_endpoint          = "https://ACCOUNT_ID.r2.cloudflarestorage.com"
+r2_bucket            = "shortcircuit-headscale"

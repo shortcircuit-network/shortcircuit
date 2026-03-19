@@ -1,0 +1,42 @@
+# Improved OCI ShortCircuit Variables (Template)
+# Path: ~/Projects/shortcircuit/terraform/oracle/terraform.tfvars.example
+
+# ============================================================================
+# OCI Identity (Found in OCI Console)
+# ============================================================================
+tenancy_ocid     = "ocid1.tenancy.oc1..aaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+user_ocid        = "ocid1.user.oc1..aaaaaaaayyyyyyyyyyyyyyyyyyyyyyyyyyyy"
+fingerprint      = "xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx"
+private_key_path = "~/.oci/oci_api_key.pem"
+region           = "ap-osaka-1"  # Strongly Recommended
+compartment_id   = "ocid1.tenancy.oc1..aaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+# ============================================================================
+# Compute Resources (Ampere A1 Free Tier)
+# ============================================================================
+vm_name   = "shortcircuit-lighthouse-osaka"
+ocpus     = 1  # Max 4 for free tier
+memory_gb = 6  # Max 24 for free tier
+
+# ============================================================================
+# Cloudflare Integrations (DDNS & R2 Backup)
+# ============================================================================
+cf_token = "YOUR_CLOUDFLARE_API_TOKEN"
+cf_email = "YOUR_EMAIL@example.com"
+
+# Example: [{"name":"mesh.shortcircuit.network","zone":"ZONE_ID","record":"RECORD_ID"}]
+ddns_records_json = "[]"
+
+r2_access_key_id     = "YOUR_R2_ACCESS_KEY_ID"
+r2_secret_access_key = "YOUR_R2_SECRET_ACCESS_KEY"
+r2_endpoint          = "https://<ACCOUNT_ID>.r2.cloudflarestorage.com"
+r2_bucket            = "shortcircuit-state-backup"
+
+# ============================================================================
+# Service Configuration
+# ============================================================================
+headscale_server_url = "https://mesh.shortcircuit.network"
+headscale_version    = "0.25.1"
+
+# NOTE: Nebula MTU 1200 and MASQUE/QUIC (UDP 443) 
+# will be provisioned via scripts/install.sh
